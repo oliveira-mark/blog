@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="./static/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark" />
+    <meta name="generator" content="Marmite" />
+    
+<meta property="og:title" content="Guia Incompleto Testes no Frontend">
+
+<meta property="og:description" content="Você teste já fez testes no frontend? À primeira vista, pode parecer desnecessário testar interfaces...">
+
+<meta property="og:image" content="https://blog.bymarcos.com/media/og_image.jpg">
+
+
+<meta property="og:url" content="https://blog.bymarcos.com/guia-incompleto-testes-no-frontend.html">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="M. Oliveira">
+
+<meta property="article:published_time" content=" 2013-03-28T00:00:00+00:00">
+
+
+<meta property="article:author" content="https://blog.bymarcos.com/author-oliveira-mark.html">
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://blog.bymarcos.com/guia-incompleto-testes-no-frontend.html"
+    },
+    "url": "https://blog.bymarcos.com/guia-incompleto-testes-no-frontend.html",
+    "headline": "Guia Incompleto Testes no Frontend",
+    "description": "Você teste já fez testes no frontend? À primeira vista, pode parecer desnecessário testar interfaces e componentes. Afinal, você mesmo pode ...",
+    
+    "author": {
+        "@type": "Person",
+        "name": "Marcos Oliveira",
+        "url": "https://blog.bymarcos.com/author-oliveira-mark.html",
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "M. Oliveira",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.bymarcos.com/media/logo-marcos.svg"
+        }
+    },
+    "datePublished": "2013-03-28T00:00:00+00:00"
+}
+</script>
+
+
+    <title>Guia Incompleto Testes no Frontend | M. Oliveira</title>
+    <link rel="stylesheet" type="text/css" href="./static/pico.min.css">
+    <link rel="stylesheet" type="text/css" href="./static/marmite.css">
+    
+    <link rel="stylesheet" type="text/css" href="./static/colorschemes/minimal.css">
+    
+    <link rel="stylesheet" type="text/css" href="./static/custom.css">
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/github.min.css" id="highlightjs-theme" />
+
+
+
+    <link rel="alternate" type="application/rss+xml" title="index" href="index.rss">
+    <link rel="alternate" type="application/rss+xml" title="tag: frontend" href="tag-frontend.rss">
+    <link rel="alternate" type="application/rss+xml" title="author: oliveira-mark" href="author-oliveira-mark.rss">
+    <link rel="alternate" type="application/rss+xml" title="year: 2013" href="archive-2013.rss">
+    
+
+    
+    
+    
+    
+    
+</head>
+<body>
+    
+    <div class="container-fluid announcement-wrapper">
+        <div class="announcement"></div>
+    </div>
+    
+    <main class="container">
+        
+        <header class="header-content">
+            <nav class="header-nav">
+                <ul class="header-name">
+                    <li>
+                        <hgroup>
+                            <h2><a href="./" class="contrast">M. Oliveira</a></h2>
+                             <p>Textos curtos sobre tecnologia e produtividade</p> 
+                        </hgroup>
+                    </li>
+                </ul>
+                <button id="menu-toggle" class="hamburger">&#9776;</button>
+                
+                <ul class="header-menu" id="header-menu">
+                    
+                      
+                      
+                    <li>
+                        
+                        <a class="menu-item secondary"  href="./sobre.html">Sobre</a>
+                        
+                    </li>
+                    
+                      
+                      
+                    <li>
+                        
+                        <a class="menu-item secondary"  href="./tags.html">Categorias</a>
+                        
+                    </li>
+                    
+                      
+                      
+                    <li>
+                        
+                        <a class="menu-item secondary"  href="https://www.linkedin.com/in/oliveira-mark/" target="_blank" >Linkedin</a>
+                        
+                    </li>
+                    
+                      
+                      
+                    <li>
+                        
+                        <a class="menu-item secondary"  href="https://github.com/oliveira-mark" target="_blank" >Github</a>
+                        
+                    </li>
+                    
+                    <li><span class="theme-toggle secondary" title="dark mode">&#9789;</span></li>
+                    
+                    <li><a href="#" id="search-toggle" class="secondary" title="Search (Ctrl + Shift + F)"> <span class="search-txt">Search</span><span class="search-magnifier"></span></a></li>
+                    
+                    <div class="underline"></div>
+                </ul>
+            </nav>
+            
+            <div class="marmite-background-overlay" id="overlay-close"></div>
+            <div class="marmite-search-bar hidden">
+                <span>Search</span>
+                <button class="marmite-close-button" id="search-close">X</button>
+                <input placeholder="Search" id="marmite-search-input" />
+                <div class="marmite-search-bar-result">
+                    <ul id="marmite-search-bar-result"></ul>
+                </div>
+            </div>
+            
+        </header>
+        
+        <section class="main-content">
+            
+
+
+
+<article>
+
+  
+
+
+<div class="content-title" id="title">
+    <h1>Guia Incompleto Testes no Frontend</h1> 
+    
+
+
+<span class="content-date">
+    <small> Mar 28, 2013 - &#10710; 3 min</small>
+</span>
+
+</div>
+
+  
+
+  <div class="content-html"><p>Você teste já fez testes no frontend? À primeira vista, pode parecer desnecessário testar interfaces e componentes. Afinal, você mesmo pode clicar em um botão e ver que ele está funcionando, certo? rs</p>
+<p>Sim, mas existem situações em que configurar testes pode impedir que você cometa erros e quebre parte de sua aplicação. Veja alguns exemplos:</p>
+<ul>
+<li><strong>Alterações em componentes:</strong> é comum surgir demandas de alteração ou criação de componentes que podem impactar o funcionamento de outros.</li>
+<li><strong>Simular uma API:</strong> caso a API ainda não esteja pronta ou simplesmente para evitar requests desnecessárias, você pode usar mocks.</li>
+<li><strong>Simulação de cenários:</strong> para garantir que sua aplicação funcione corretamente, você pode configurar seus testes para diferentes cenários.</li>
+<li><strong>Segurança e escalabilidade:</strong> os testes dão a segurança de que as novas funcionalidades não vão quebrar sua aplicação.</li>
+</ul>
+<p>São muitos benefícios. Para mim, o maior deles é a consciência tranquila ao fazer deploy.</p>
+<blockquote>
+<p>Este post tem como objetivo registrar os aprendizados que venho adquirindo sobre testes no frontend ao longo dos anos. Vou atualizar este material constantemente para que sirva como base de consulta sempre que eu precisar relembrar algo.</p>
+</blockquote>
+<hr />
+<h2><a href="#diferença-entre-testes-unitários-de-integração-e-e2e" aria-hidden="true" class="anchor" id="diferença-entre-testes-unitários-de-integração-e-e2e"></a>Diferença entre Testes Unitários, de Integração e E2E</h2>
+<ul>
+<li>
+<p><strong>Testes de Unidade:</strong> precisam ser simples e isolados do restante da aplicação. São usados com mais frequência no dia a dia e destinados a testar um componente, uma função ou elemento específico.</p>
+</li>
+<li>
+<p><strong>Testes de Integração:</strong> têm como objetivo verificar o funcionamento correto da comunicação entre partes da sua aplicação. São especialmente úteis para testar integrações externas, como APIs, bancos de dados e outros serviços.</p>
+</li>
+<li>
+<p><strong>Testes E2E:</strong> são os mais completos e custosos. Eles simulam a interação de um usuário com sua aplicação. Por exemplo: criando uma conta, fazendo login, salvando alterações.</p>
+</li>
+</ul>
+<p>Neste material, irei explorar as características, vantagens, ferramentas e exemplos de código dessas três modalidades de teste no frontend.</p>
+<blockquote>
+<p>Existem testes para o backend, que podem usar as mesmas ferramentas abordadas nesta publicação. Porém, testes no backend não são o foco deste material.</p>
+</blockquote>
+<hr />
+<h2><a href="#1-testes-de-unidade-ou-unitários" aria-hidden="true" class="anchor" id="1-testes-de-unidade-ou-unitários"></a>1. Testes de Unidade (ou Unitários)</h2>
+<p>Testes de unidade são uma boa prática de desenvolvimento que consiste em testar individualmente unidades, funções, métodos ou qualquer lógica da sua aplicação. Testam seu funcionamento de forma isolada e reportam possíveis erros.</p>
+<p>No frontend, esses testes geralmente se concentram em garantir que componentes, como botões, formulários ou funções, funcionem conforme esperado.</p>
+<p>Para facilitar esse processo, temos ferramentas como <strong>Jest</strong>, <strong>Vitest</strong>, <strong>React Testing Library</strong>, entre outras. Vou explicar melhor o uso dessas ferramentas ainda neste texto.</p>
+<h3><a href="#qual-a-vantagem-do-teste-de-unidade-em-relação-aos-outros" aria-hidden="true" class="anchor" id="qual-a-vantagem-do-teste-de-unidade-em-relação-aos-outros"></a>Qual a vantagem do Teste de Unidade em relação aos outros?</h3>
+<p>A principal vantagem é a <strong>rapidez e praticidade</strong>. Depois de configurar os testes em todas as unidades necessárias, você pode rodar verificações sempre que fizer alguma alteração, garantindo que todas as unidades estejam funcionando.</p>
+<p>Graças a essa simplicidade, a manutenção nos componentes e em seus respectivos testes é muito mais simples e prática em comparação com outros modelos que vamos apresentar ainda neste texto.</p>
+<hr />
+<h3><a href="#vamos-ver-na-prática" aria-hidden="true" class="anchor" id="vamos-ver-na-prática"></a>Vamos ver na prática?</h3>
+<p>Agora vou te apresentar algumas ferramentas que facilitam o dia a dia de desenvolvimento com testes unitários. Além de explicar seus pontos fortes, irei mostrar sua configuração inicial e alguns exemplos de código.</p>
+<h4><a href="#jest" aria-hidden="true" class="anchor" id="jest"></a>Jest</h4>
+<ul>
+<li>em breve</li>
+</ul>
+<h4><a href="#vitest" aria-hidden="true" class="anchor" id="vitest"></a>Vitest</h4>
+<ul>
+<li>em breve</li>
+</ul>
+<h4><a href="#react-testing-library" aria-hidden="true" class="anchor" id="react-testing-library"></a>React Testing Library</h4>
+<ul>
+<li>em breve</li>
+</ul>
+<blockquote>
+<p>Gostou do conteúdo e quer discutir mais sobre o tema?<br />
+Estou no <a href="https://www.linkedin.com/in/oliveira-mark/">LinkedIn</a>, é só me chamar!</p>
+</blockquote>
+</div>
+
+</article>
+
+
+
+
+
+
+        </section>
+        
+        <footer class="footer-content">
+            © 1996 By Marcos - Powered by <a href="https://github.com/rochacbruno/marmite">Marmite</a> | <a href="https://github.com/oliveira-mark">Minimal Theme</a>
+            
+        </footer>
+        
+    </main>
+
+    <script src="./static/marmite.js"></script>
+    <script src="./static/custom.js"></script>
+    
+    <script type="module" src="./static/search.js"></script>
+    
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
+<script>
+  hljs.highlightAll();
+</script>
+
+
+
+</body>
+</html>
