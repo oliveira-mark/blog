@@ -16,6 +16,7 @@ logo_image: media/logo-marcos.svg
 enable_search: true
 
 menu:
+  - ["Home", "index.html"]
   - ["Sobre", "sobre.html"]
   - ["Categorias", "tags.html"]
   - ["Linkedin", "https://www.linkedin.com/in/oliveira-mark/"]
