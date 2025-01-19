@@ -1,0 +1,11 @@
+{% set groups = ['tag', 'archive'] %}
+{% for group in groups %}
+
+##### {{group}}s
+
+{% for name, items in group(kind=group) -%}
+
+- [{{name}}]({{group}}-{{name | slugify}}.html)
+  {% endfor %}
+
+{% endfor %}
