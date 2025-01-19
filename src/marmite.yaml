@@ -1,0 +1,38 @@
+name: M. Oliveira
+tagline: Textos curtos sobre tecnologia e produtividade
+url: https://blog.bymarcos.com
+footer: © 1996 By Marcos - Powered by <a href="https://github.com/rochacbruno/marmite">Marmite</a> | <a href="https://github.com/oliveira-mark">Minimal Theme</a>
+pagination: 15
+toc: false
+json_feed: false
+
+templates_path: templates
+static_path: static
+media_path: media
+
+card_image: ./media/og_image.jpg
+logo_image: media/logo-marcos.svg
+
+enable_search: true
+
+menu:
+  - ["Sobre", "sobre.html"]
+  - ["Categorias", "tags.html"]
+  - ["Linkedin", "https://www.linkedin.com/in/oliveira-mark/"]
+  - ["Github", "https://github.com/oliveira-mark"]
+
+default_date_format: "%b %e, %Y"
+
+default_author: oliveira-mark
+authors:
+  oliveira-mark:
+    name: Marcos Oliveira
+    avatar: https://github.com/oliveira-mark.png
+    bio: Frontend developer
+    links:
+      - ["Github", "https://github.com/oliveira-mark"]
+      - ["Linkedin", "https://www.linkedin.com/in/oliveira-mark/"]
+      - ["Website", "https://bymarcos.com/"]
+
+extra:
+  colorscheme: minimal
