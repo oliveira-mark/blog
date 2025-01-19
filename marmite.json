@@ -2,12 +2,12 @@
   "marmite_version": "0.2.3",
   "posts": 1,
   "pages": 1,
-  "generated_at": "2025-01-19 10:38:32.439731300 -03:00",
-  "timestamp": 1737293912,
-  "elapsed_time": 0.0639484,
+  "generated_at": "2025-01-19 10:47:35.102777100 -03:00",
+  "timestamp": 1737294455,
+  "elapsed_time": 0.0669026,
   "config": {
     "name": "M. Oliveira",
-    "tagline": "Textos curtos sobre tecnologia e produtividade",
+    "tagline": "Textos sobre tecnologia e produtividade",
     "url": "https://blog.bymarcos.com",
     "footer": "© 1996 By Marcos - Powered by <a href=\"https://github.com/rochacbruno/marmite\">Marmite</a> | <a href=\"https://github.com/oliveira-mark\">Minimal Theme</a>",
     "language": "en",
@@ -33,6 +33,10 @@
     "logo_image": "media/logo-marcos.svg",
     "default_date_format": "%b %e, %Y",
     "menu": [
+      [
+        "Home",
+        "index.html"
+      ],
       [
         "Sobre",
         "sobre.html"
