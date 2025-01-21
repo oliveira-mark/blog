@@ -199,7 +199,7 @@ blockquote {
     padding: 2rem;
     border-radius: 0.25rem;
     margin: 2rem 0;
-    backdrop-filter: brightness(0.85);
+    backdrop-filter: brightness(0.95);
     
 
     p {
