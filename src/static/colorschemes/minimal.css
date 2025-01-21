@@ -127,6 +127,7 @@ body {
     color: var(--pico-background-color);
     border-radius: 0.25rem;
     font-size: 1.5rem;
+    z-index: 10;
 }
 nav li {
     padding: 0;
@@ -284,4 +285,15 @@ details {
 
 .content-date {
     opacity: 0;
+}
+
+.header-menu {
+
+    @media (max-width: 450px) {
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding-bottom: 16px;
+        border-bottom: 1px #959595 solid;
+    }
 }
