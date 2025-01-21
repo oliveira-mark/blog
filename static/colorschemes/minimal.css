@@ -196,10 +196,10 @@ p {
 blockquote {
     border-left: 0 solid var(--pico-blockquote-border-color);
     border-inline-start: 0 solid var(--pico-blockquote-border-color);
-    background: #20453f0a;
     padding: 2rem;
     border-radius: 0.25rem;
     margin: 2rem 0;
+    backdrop-filter: brightness(0.85);
     
 
     p {
