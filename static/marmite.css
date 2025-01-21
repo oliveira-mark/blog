@@ -659,6 +659,7 @@ select.colorscheme-toggle option {
   .header-nav {
     flex-direction: row;
   }
+/*
   .header-menu {
     display: none;
     flex-direction: column;
@@ -676,7 +677,7 @@ select.colorscheme-toggle option {
   .header-menu.active {
     display: flex;
   }
-
+*/
   .hamburger {
     display: block;
   }
