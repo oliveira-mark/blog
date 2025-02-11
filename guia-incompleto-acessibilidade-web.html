@@ -1,77 +1,191 @@
-<?xml version="1.0" encoding="utf-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>M. Oliveira</title><link>https://blog.bymarcos.com</link><description>Textos sobre tecnologia e produtividade</description><pubDate>Sun, 28 Apr 2013 00:00:00 GMT</pubDate><lastBuildDate>Tue, 11 Feb 2025 18:57:58 GMT</lastBuildDate><generator>marmite</generator><image><url>https://blog.bymarcos.com/./media/og_image.jpg</url><title></title><link></link></image><item><title>Guia Incompleto React Native</title><link>https://blog.bymarcos.com/guia-incompleto-react-native.html</link><author>oliveira-mark</author><category>frontend</category><guid>https://blog.bymarcos.com/guia-incompleto-react-native.html</guid><pubDate>Sun, 28 Apr 2013 00:00:00 GMT</pubDate><source url="https://blog.bymarcos.com">author-oliveira-mark</source><content:encoded><![CDATA[<p>React Native é um framework criado pelo Facebook que permite desenvolver aplicações mobile para iOS e Android utilizando JavaScript e React. Ele se destaca por permitir o reaproveitamento de código entre plataformas, proporcionando uma experiência de desenvolvimento mais eficiente.</p>
-<p>Se você está começando com React Native, pode se deparar com novos conceitos e desafios, como lidar com componentes nativos, estilização responsiva e performance. Mas não se preocupe, com a prática tudo se torna mais claro.</p>
-<p>Para começar, é importante entender alguns conceitos fundamentais:</p>
-<ul>
-<li><strong>Componentes:</strong> assim como no React, o React Native utiliza componentes reutilizáveis para construir a interface da aplicação.</li>
-<li><strong>Estilização com StyleSheet:</strong> diferente do CSS tradicional, o React Native utiliza um objeto JavaScript para estilizar os componentes.</li>
-<li><strong>Componentes Nativos:</strong> possibilitam a integração com funcionalidades específicas de cada plataforma, como câmera e GPS.</li>
-<li><strong>Navegação:</strong> a navegação entre telas é feita com bibliotecas como React Navigation, que oferece diversas opções de navegação.</li>
-</ul>
-<p>React Native continua evoluindo com melhorias na performance, novas APIs e integração com frameworks como Expo, que simplifica o desenvolvimento e distribuição de apps.</p>
-<blockquote>
-<p>Este post tem como objetivo registrar os aprendizados que venho adquirindo sobre React Native ao longo dos anos. Vou atualizar este material constantemente para que sirva como base de consulta sempre que eu precisar relembrar algo.</p>
-</blockquote>
-<blockquote>
-<p>Gostou do conteúdo e quer discutir mais sobre o tema?<br />
-Estou no <a href="https://www.linkedin.com/in/oliveira-mark/">LinkedIn</a>, é só me chamar!</p>
-</blockquote>
-]]></content:encoded></item><item><title>Guia Incompleto Testes no Frontend</title><link>https://blog.bymarcos.com/guia-incompleto-testes-no-frontend.html</link><author>oliveira-mark</author><category>frontend</category><guid>https://blog.bymarcos.com/guia-incompleto-testes-no-frontend.html</guid><pubDate>Thu, 28 Mar 2013 00:00:00 GMT</pubDate><source url="https://blog.bymarcos.com">author-oliveira-mark</source><content:encoded><![CDATA[<p>Você teste já fez testes no frontend? À primeira vista, pode parecer desnecessário testar interfaces e componentes. Afinal, você mesmo pode clicar em um botão e ver que ele está funcionando, certo? rs</p>
-<p>Sim, mas existem situações em que configurar testes pode impedir que você cometa erros e quebre parte de sua aplicação. Veja alguns exemplos:</p>
-<ul>
-<li><strong>Alterações em componentes:</strong> é comum surgir demandas de alteração ou criação de componentes que podem impactar o funcionamento de outros.</li>
-<li><strong>Simular uma API:</strong> caso a API ainda não esteja pronta ou simplesmente para evitar requests desnecessárias, você pode usar mocks.</li>
-<li><strong>Simulação de cenários:</strong> para garantir que sua aplicação funcione corretamente, você pode configurar seus testes para diferentes cenários.</li>
-<li><strong>Segurança e escalabilidade:</strong> os testes dão a segurança de que as novas funcionalidades não vão quebrar sua aplicação.</li>
-</ul>
-<p>São muitos benefícios. Para mim, o maior deles é a consciência tranquila ao fazer deploy.</p>
-<blockquote>
-<p>Este post tem como objetivo registrar os aprendizados que venho adquirindo sobre testes no frontend ao longo dos anos. Vou atualizar este material constantemente para que sirva como base de consulta sempre que eu precisar relembrar algo.</p>
-</blockquote>
-<hr />
-<h2><a href="#diferença-entre-testes-unitários-de-integração-e-e2e" aria-hidden="true" class="anchor" id="diferença-entre-testes-unitários-de-integração-e-e2e"></a>Diferença entre Testes Unitários, de Integração e E2E</h2>
-<ul>
-<li>
-<p><strong>Testes de Unidade:</strong> precisam ser simples e isolados do restante da aplicação. São usados com mais frequência no dia a dia e destinados a testar um componente, uma função ou elemento específico.</p>
-</li>
-<li>
-<p><strong>Testes de Integração:</strong> têm como objetivo verificar o funcionamento correto da comunicação entre partes da sua aplicação. São especialmente úteis para testar integrações externas, como APIs, bancos de dados e outros serviços.</p>
-</li>
-<li>
-<p><strong>Testes E2E:</strong> são os mais completos e custosos. Eles simulam a interação de um usuário com sua aplicação. Por exemplo: criando uma conta, fazendo login, salvando alterações.</p>
-</li>
-</ul>
-<p>Neste material, irei explorar as características, vantagens, ferramentas e exemplos de código dessas três modalidades de teste no frontend.</p>
-<blockquote>
-<p>Existem testes para o backend, que podem usar as mesmas ferramentas abordadas nesta publicação. Porém, testes no backend não são o foco deste material.</p>
-</blockquote>
-<hr />
-<h2><a href="#1-testes-de-unidade-ou-unitários" aria-hidden="true" class="anchor" id="1-testes-de-unidade-ou-unitários"></a>1. Testes de Unidade (ou Unitários)</h2>
-<p>Testes de unidade são uma boa prática de desenvolvimento que consiste em testar individualmente unidades, funções, métodos ou qualquer lógica da sua aplicação. Testam seu funcionamento de forma isolada e reportam possíveis erros.</p>
-<p>No frontend, esses testes geralmente se concentram em garantir que componentes, como botões, formulários ou funções, funcionem conforme esperado.</p>
-<p>Para facilitar esse processo, temos ferramentas como <strong>Jest</strong>, <strong>Vitest</strong>, <strong>React Testing Library</strong>, entre outras. Vou explicar melhor o uso dessas ferramentas ainda neste texto.</p>
-<h3><a href="#qual-a-vantagem-do-teste-de-unidade-em-relação-aos-outros" aria-hidden="true" class="anchor" id="qual-a-vantagem-do-teste-de-unidade-em-relação-aos-outros"></a>Qual a vantagem do Teste de Unidade em relação aos outros?</h3>
-<p>A principal vantagem é a <strong>rapidez e praticidade</strong>. Depois de configurar os testes em todas as unidades necessárias, você pode rodar verificações sempre que fizer alguma alteração, garantindo que todas as unidades estejam funcionando.</p>
-<p>Graças a essa simplicidade, a manutenção nos componentes e em seus respectivos testes é muito mais simples e prática em comparação com outros modelos que vamos apresentar ainda neste texto.</p>
-<hr />
-<h3><a href="#vamos-ver-na-prática" aria-hidden="true" class="anchor" id="vamos-ver-na-prática"></a>Vamos ver na prática?</h3>
-<p>Agora vou te apresentar algumas ferramentas que facilitam o dia a dia de desenvolvimento com testes unitários. Além de explicar seus pontos fortes, irei mostrar sua configuração inicial e alguns exemplos de código.</p>
-<h4><a href="#jest" aria-hidden="true" class="anchor" id="jest"></a>Jest</h4>
-<ul>
-<li>em breve</li>
-</ul>
-<h4><a href="#vitest" aria-hidden="true" class="anchor" id="vitest"></a>Vitest</h4>
-<ul>
-<li>em breve</li>
-</ul>
-<h4><a href="#react-testing-library" aria-hidden="true" class="anchor" id="react-testing-library"></a>React Testing Library</h4>
-<ul>
-<li>em breve</li>
-</ul>
-<blockquote>
-<p>Gostou do conteúdo e quer discutir mais sobre o tema?<br />
-Estou no <a href="https://www.linkedin.com/in/oliveira-mark/">LinkedIn</a>, é só me chamar!</p>
-</blockquote>
-]]></content:encoded></item><item><title>Guia Incompleto Acessibilidade Web</title><link>https://blog.bymarcos.com/guia-incompleto-acessibilidade-web.html</link><author>oliveira-mark</author><category>frontend</category><guid>https://blog.bymarcos.com/guia-incompleto-acessibilidade-web.html</guid><pubDate>Thu, 28 Feb 2013 00:00:00 GMT</pubDate><source url="https://blog.bymarcos.com">author-oliveira-mark</source><content:encoded><![CDATA[<br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="./static/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark" />
+    <meta name="generator" content="Marmite" />
+    
+<meta property="og:title" content="Guia Incompleto Acessibilidade Web">
+
+<meta property="og:description" content="
+Quanto mais você estuda acessibilidade, mais percebe como pequenos cuidados no desenvolvimento de u...">
+
+<meta property="og:image" content="https://blog.bymarcos.com/media/og_image.jpg">
+
+
+<meta property="og:url" content="https://blog.bymarcos.com/guia-incompleto-acessibilidade-web.html">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="M. Oliveira">
+
+<meta property="article:published_time" content=" 2013-02-28T00:00:00+00:00">
+
+
+<meta property="article:author" content="https://blog.bymarcos.com/author-oliveira-mark.html">
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://blog.bymarcos.com/guia-incompleto-acessibilidade-web.html"
+    },
+    "url": "https://blog.bymarcos.com/guia-incompleto-acessibilidade-web.html",
+    "headline": "Guia Incompleto Acessibilidade Web",
+    "description": "Quanto mais você estuda acessibilidade, mais percebe como pequenos cuidados no desenvolvimento de uma interface podem fazer uma grande difer...",
+    
+    "author": {
+        "@type": "Person",
+        "name": "Marcos Oliveira",
+        "url": "https://blog.bymarcos.com/author-oliveira-mark.html",
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "M. Oliveira",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.bymarcos.com/media/logo-marcos.svg"
+        }
+    },
+    "datePublished": "2013-02-28T00:00:00+00:00"
+}
+</script>
+
+
+    <title>Guia Incompleto Acessibilidade Web | M. Oliveira</title>
+    <link rel="stylesheet" type="text/css" href="./static/pico.min.css">
+    <link rel="stylesheet" type="text/css" href="./static/marmite.css">
+    
+    <link rel="stylesheet" type="text/css" href="./static/colorschemes/minimal.css">
+    
+    <link rel="stylesheet" type="text/css" href="./static/custom.css">
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/github.min.css" id="highlightjs-theme" />
+
+
+
+    <link rel="alternate" type="application/rss+xml" title="index" href="index.rss">
+    <link rel="alternate" type="application/rss+xml" title="tag: frontend" href="tag-frontend.rss">
+    <link rel="alternate" type="application/rss+xml" title="author: oliveira-mark" href="author-oliveira-mark.rss">
+    <link rel="alternate" type="application/rss+xml" title="year: 2013" href="archive-2013.rss">
+    
+
+    
+    
+    
+    
+    
+</head>
+<body>
+    
+    <div class="container-fluid announcement-wrapper">
+        <div class="announcement"></div>
+    </div>
+    
+    <main class="container">
+        
+        <header class="header-content">
+            <nav class="header-nav">
+                <ul class="header-name">
+                    <li>
+                        <hgroup>
+                            <h2><a href="./" class="contrast">M. Oliveira</a></h2>
+                             <p>Textos sobre tecnologia e produtividade</p> 
+                        </hgroup>
+                    </li>
+                </ul>
+                <!--<button id="menu-toggle" class="hamburger">&#9776;</button>-->
+                
+                <ul class="header-menu" id="header-menu">
+                    
+                      
+                      
+                    <li>
+                        
+                        <a class="menu-item secondary"  href="./index.html">Home</a>
+                        
+                    </li>
+                    
+                      
+                      
+                    <li>
+                        
+                        <a class="menu-item secondary"  href="./sobre.html">Sobre</a>
+                        
+                    </li>
+                    
+                      
+                      
+                    <li>
+                        
+                        <a class="menu-item secondary"  href="./tags.html">Categorias</a>
+                        
+                    </li>
+                    
+                      
+                      
+                    <li>
+                        
+                        <a class="menu-item secondary"  href="https://www.linkedin.com/in/oliveira-mark/" target="_blank" >Linkedin</a>
+                        
+                    </li>
+                    
+                      
+                      
+                    <li>
+                        
+                        <a class="menu-item secondary"  href="https://github.com/oliveira-mark" target="_blank" >Github</a>
+                        
+                    </li>
+                    
+                    <li><span class="theme-toggle secondary" title="dark mode">&#9789;</span></li>
+                    
+                    <li><a href="#" id="search-toggle" class="secondary" title="Search (Ctrl + Shift + F)"> <span class="search-txt">Search</span><span class="search-magnifier"></span></a></li>
+                    
+                    <div class="underline"></div>
+                </ul>
+            </nav>
+            
+            <div class="marmite-background-overlay" id="overlay-close"></div>
+            <div class="marmite-search-bar hidden">
+                <span>Search</span>
+                <button class="marmite-close-button" id="search-close">X</button>
+                <input placeholder="Search" id="marmite-search-input" />
+                <div class="marmite-search-bar-result">
+                    <ul id="marmite-search-bar-result"></ul>
+                </div>
+            </div>
+            
+        </header>
+        
+        <section class="main-content">
+            
+
+
+
+<article>
+
+  
+
+
+<div class="content-title" id="title">
+    <h1>Guia Incompleto Acessibilidade Web</h1> 
+    
+
+
+<span class="content-date">
+    <small> Feb 28, 2013 - &#10710; 26 min</small>
+</span>
+
+</div>
+
+  
+
+  <div class="content-html"><br>
 Quanto mais você estuda acessibilidade, mais percebe como pequenos cuidados no desenvolvimento de uma interface podem fazer uma grande diferença na experiência das pessoas que utilizam a aplicação.
 <p>Meu propósito com este post é incentivar a empatia dos desenvolvedores front-end pelo usuário final, que pode ter necessidades de acessibilidade além do comum.</p>
 <p>Tentei resumir tudo o que aprendi ao longo dos anos trabalhando com acessibilidade digital. Grande parte deste material foi extraída de referências como artigos, cursos, conteúdos online e certificações que concluí. Por isso, vai notar um texto mais fluido e informativo.</p>
@@ -581,38 +695,37 @@ Dado o ritmo acelerado das inovações tecnológicas, planeje atualizações reg
 <p>Gostou do conteúdo e quer discutir mais sobre o tema?<br />
 Estou no <a href="https://www.linkedin.com/in/oliveira-mark/">LinkedIn</a>, é só me chamar!</p>
 </blockquote>
-]]></content:encoded></item><item><title>Guia Incompleto Angular</title><link>https://blog.bymarcos.com/guia-incompleto-angular.html</link><author>oliveira-mark</author><category>frontend</category><guid>https://blog.bymarcos.com/guia-incompleto-angular.html</guid><pubDate>Thu, 28 Feb 2013 00:00:00 GMT</pubDate><source url="https://blog.bymarcos.com">author-oliveira-mark</source><content:encoded><![CDATA[<p>Angular é um framework robusto para a criação de aplicações frontend escaláveis e de alta performance. Desde o seu lançamento, ele tem sido amplamente utilizado para construir aplicações web modernas, com uma estrutura bem definida e diversas funcionalidades integradas.</p>
-<p>Se você está começando com Angular, pode parecer um pouco assustador no início. Conceitos como componentes, diretivas, serviços e injeção de dependência podem ser confusos. Mas com o tempo, tudo se torna mais claro.</p>
-<p>Para começar, é importante entender alguns conceitos fundamentais:</p>
-<ul>
-<li><strong>Componentes:</strong> são a base de uma aplicação Angular, definindo a lógica e a estrutura de apresentação.</li>
-<li><strong>Templates e Diretivas:</strong> permitem criar interfaces dinâmicas e reativas de forma declarativa.</li>
-<li><strong>Serviços e Injeção de Dependência:</strong> promovem a reutilização de código e a separação de responsabilidades.</li>
-<li><strong>Módulos:</strong> organizam a aplicação em partes reutilizáveis e de fácil manutenção.</li>
-</ul>
-<p>Angular oferece uma solução completa, com ferramentas como Angular CLI, RxJS e o sistema de roteamento embutido para criar aplicações robustas e eficientes.</p>
-<blockquote>
-<p>Este post tem como objetivo registrar os aprendizados que venho adquirindo sobre Angular ao longo dos anos. Vou atualizar este material constantemente para que sirva como base de consulta sempre que eu precisar relembrar algo.</p>
-</blockquote>
-<blockquote>
-<p>Gostou do conteúdo e quer discutir mais sobre o tema?<br />
-Estou no <a href="https://www.linkedin.com/in/oliveira-mark/">LinkedIn</a>, é só me chamar!</p>
-</blockquote>
-]]></content:encoded></item><item><title>Guia Incompleto React</title><link>https://blog.bymarcos.com/guia-incompleto-react.html</link><author>oliveira-mark</author><category>frontend</category><guid>https://blog.bymarcos.com/guia-incompleto-react.html</guid><pubDate>Mon, 28 Jan 2013 00:00:00 GMT</pubDate><source url="https://blog.bymarcos.com">author-oliveira-mark</source><content:encoded><![CDATA[<p>React é uma biblioteca que facilita a criação de interfaces interativas e reativas. Desde o começo o React mudou a forma como desenvolvemos aplicações frontend, trazendo conceitos como componentes reutilizáveis e uma abordagem declarativa para construir interfaces de usuário.</p>
-<p>Se você está começando com React, pode se sentir sobrecarregado com a quantidade de conceitos e ferramentas disponíveis. É normal! Hooks, estados, contextos, effects... tudo parece complexo no início. Mas acredite, com o tempo as peças se encaixam.</p>
-<p>Para começar, é importante entender alguns conceitos fundamentais:</p>
-<ul>
-<li><strong>Componentes:</strong> são a base do React. Tudo gira em torno da criação e reutilização de componentes.</li>
-<li><strong>Props e Estado:</strong> props permitem passar informações entre componentes, enquanto o estado permite que um componente gerencie seus dados internos.</li>
-<li><strong>Hooks:</strong> funções especiais que permitem usar funcionalidades do React em componentes funcionais, como useState e useEffect.</li>
-<li><strong>Virtual DOM:</strong> uma representação leve da interface de usuário que React utiliza para otimizar atualizações na tela.</li>
-</ul>
-<p>React continua evoluindo e trazendo novas soluções, como Server Components e React Suspense, que prometem melhorar ainda mais a experiência de desenvolvimento.</p>
-<blockquote>
-<p>Este post tem como objetivo registrar os aprendizados que venho adquirindo sobre React ao longo dos anos. Vou atualizar este material constantemente para que sirva como base de consulta sempre que eu precisar relembrar algo.</p>
-</blockquote>
-<blockquote>
-<p>Gostou do conteúdo e quer discutir mais sobre o tema?<br />
-Estou no <a href="https://www.linkedin.com/in/oliveira-mark/">LinkedIn</a>, é só me chamar!</p>
-</blockquote>
-]]></content:encoded></item></channel></rss>
+</div>
+
+</article>
+
+
+
+
+
+
+        </section>
+        
+        <footer class="footer-content">
+            © 1996 By Marcos - Powered by <a href="https://github.com/rochacbruno/marmite">Marmite</a> | <a href="https://github.com/oliveira-mark">Minimal Theme</a>
+            
+        </footer>
+        
+    </main>
+
+    <script src="./static/marmite.js"></script>
+    <script src="./static/custom.js"></script>
+    
+    <script type="module" src="./static/search.js"></script>
+    
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
+<script>
+  hljs.highlightAll();
+</script>
+
+
+
+</body>
+</html>

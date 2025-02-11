@@ -748,3 +748,7 @@ select.colorscheme-toggle option {
       --pico-font-size: 118.75%;
   }
 }
+
+h6 {
+  opacity: 0;
+}
